@@ -121,4 +121,6 @@ gen
 **/mvnw
 **/mvnw.cmd
 **/.mvn
-**/target
+**/target/
+**/node_modules/
+**/.gitignore

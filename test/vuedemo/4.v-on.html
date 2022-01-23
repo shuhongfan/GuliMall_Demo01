@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="node_modules/vue/dist/vue.js"></script>
+</head>
+<body>
+<div id="app">
+    <input type="text" v-model="num">
+    <button v-on:click="num++">点赞</button>
+    <button v-on:click="cancle()">取消点赞</button>
+    <h1>{{name}},非常帅,有{{num}}个人为他点赞</h1>
+
+    <!-- 事件修饰符 -->
+    <div style="border: 1px solid red;padding: 20px;" v-on:click.once="hello">
+        大div
+        <div style="border: 1px solid blue;padding: 20px;" @click.stop="hello">
+            小div <br />
+            <a href="http://www.baidu.com" @click.prevent.stop="hello">去百度</a>
+        </div>
+    </div>
+
+    <input type="text" v-model="num"
+           @keyup.enter="num=10"
+           v-on:keyup.up="num+=2"
+           v-on:keyup.down="num-=2">
+</div>
+<script>
+    let vm = new Vue({
+        el:"#app",
+        data:{
+            num:10,
+            name:"张三"
+        },
+        methods:{
+            cancle(){
+                this.num--
+            },
+            hello(){
+                alert("点击了")
+            }
+        }
+    })
+</script>
+</body>
+</html>

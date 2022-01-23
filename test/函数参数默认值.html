@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    // 在ES6之前,我们无法给一个函数参数设置默认值,只能采用变通的写法
+    function add(a,b=100) {
+        b = b || 1;
+        return a+b
+    }
+
+    console.log(add(10))
+
+    // 不定参数
+    function fun(...values) {
+        console.log(values)
+    }
+    fun(1,2)
+    fun(1,2,4)
+
+    // 箭头函数
+    let print = function (obj) {
+        console.log(obj)
+    }
+    print("hello")
+
+    let print2=obj=>console.log(obj)
+    print2("hello")
+
+    let sum = (a,b) => a+b;
+    console.log(sum(3,5))
+
+    let sum2 = (a,b)=>{
+        c=a+b;
+        return a+c;
+    }
+    console.log(sum2(5,6))
+
+    const  person = {
+        name:"jack",
+        age:21,
+        language:['jack','js','css']
+    }
+    function hello(person) {
+        console.log("hello:"+person.name)
+    }
+    let hello2 = (person) => console.log("hello="+person.name)
+    hello2(person)
+
+    // 箭头函数+解构
+    let hello3 = ({name}) =>console.log("hello="+name)
+    hello3(person)
+</script>
+</body>
+</html>

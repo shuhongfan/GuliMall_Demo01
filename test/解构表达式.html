@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    // 数组解构
+    let arr = [1,2,3]
+    // let a= arr[0]
+    // let b= arr[1]
+    // let c= arr[2]
+
+    let [a,b,c]  = arr
+
+    console.log(a,b,c)
+
+    // 对象解构
+    const  person = {
+        name:"jack",
+        age:21,
+        language:['jack','js','css']
+    }
+    // const name = person.name
+    // const age = person.age
+    // const language = person.language
+
+    const {name:abc,age,language} = person
+    console.log(abc,age,language)
+
+
+    // 字符串扩展
+    let str = "hello.vue"
+    console.log(str.startsWith("hello"))
+    console.log(str.endsWith(".vue"))
+    console.log(str.includes("e"))
+    console.log(str.includes("hello"))
+
+    // 字符串模板
+    let ss=`
+        <div>
+            <span>字符串模板</span>
+    </div>
+    `
+    console.log(ss)
+
+    function fun() {
+        return "我是一个函数"
+    }
+
+    let info = `我是${abc},今年${age+10}了,我想说:${fun()}`
+    console.log(info)
+
+
+</script>
+</body>
+</html>

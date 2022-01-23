@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script src="node_modules/vue/dist/vue.js"></script>
+<div id="app">
+    <a v-bind:href="link"><(￣︶￣)↗[GO!]</a>
+
+    <span
+            v-bind:class="{'active':isActive,'text-danger':hasError} "
+            v-bind:style="{color:color,fontSize:size}"
+    >你好</span>
+</div>
+<script>
+    new Vue({
+        el:"#app",
+        data:{
+            link:"http://www.baidu.com",
+            isActive:true,
+            hasError:true,
+            color:'red',
+            size:'30px'
+        }
+    })
+</script>
+</body>
+</html>

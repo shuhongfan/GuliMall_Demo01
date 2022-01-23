@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <div id="app">
+        <ul>
+            <li v-for="(user,index) in userList" :key="index">
+                {{index}}---{{user.id}}---{{user.name}}---{{user.gender | genderFilter}}---{{user.gender | gFilter}}
+            </li>
+        </ul>
+    </div>
+</body>
+<script src="node_modules/vue/dist/vue.js"></script>
+<script>
+    // 全局过滤器
+    Vue.filter("gFilter",function (val) {
+        if (val==1){
+            return "男"
+        } else {
+            return "女"
+        }
+    })
+    new Vue({
+        el:"#app",
+        data: {
+            userList:[
+                {id:1,name:'jacky',gender:1},
+                {id:2,name:'peter',gender:0}
+            ]
+        },
+        filters:{ // 局部过滤器
+            genderFilter(val){
+                if (val==1){
+                    return "男"
+                } else {
+                    return "女"
+                }
+            }
+        }
+    })
+</script>
+</html>

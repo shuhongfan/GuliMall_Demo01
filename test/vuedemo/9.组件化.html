@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script src="node_modules/vue/dist/vue.js"></script>
+<div id="app">
+    <button @click="num++">我被点击了 {{num}} 次</button>
+
+    <counter/>
+    <counter/>
+    <counter/>
+    <counter/>
+
+    <button-counter></button-counter>
+    <button-counter></button-counter>
+    <button-counter></button-counter>
+</div>
+<script>
+    // 全局声明一个组件
+    Vue.component("counter",{
+        template:`<button @click="num++">我被点击了 {{num}} 次</button>`,
+        data(){
+            return {
+                num: 1
+            }
+        }
+    })
+
+
+    const buttonCounter={
+        template: `<button @click="num++">我被点击了 {{num}} 次</button>`,
+        data(){
+            return{
+                count:1
+            }
+        }
+    }
+    new Vue({
+        el:"#app",
+        data:{
+            num:0
+        },
+        components:{
+            'button-counter':buttonCounter
+        }
+    })
+</script>
+</body>
+</html>

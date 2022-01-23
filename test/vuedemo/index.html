@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="node_modules/vue/dist/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <input type="text" v-model="num">
+        <button v-on:click="num++">点赞</button>
+        <button v-on:click="cancle()">取消点赞</button>
+        <h1>{{name}},非常帅,有{{num}}个人为他点赞</h1>
+    </div>
+<script>
+    let vm = new Vue({
+        el:"#app",
+        data:{
+            num:10,
+            name:"张三"
+        },
+        methods:{
+            cancle(){
+                this.num--
+            }
+        }
+    })
+</script>
+</body>
+</html>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script src="node_modules/vue/dist/vue.js"></script>
+<div id="app">
+    精通的语言：
+    <input type="checkbox" v-model="language" value="Java"> java <br>
+    <input type="checkbox" v-model="language" value="PHP"> PHP <br>
+    <input type="checkbox" v-model="language" value="Python"> Python <br>
+
+    选中了： {{language}}
+</div>
+<script>
+    new Vue({
+        el:"#app",
+        data:{
+            language: []
+        }
+    })
+</script>
+</body>
+</html>

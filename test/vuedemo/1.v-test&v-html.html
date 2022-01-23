@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script src="node_modules/vue/dist/vue.js"></script>
+
+<div id="app">
+    {{msg}}
+    {{1+1}}
+    {{hello()}}
+    <span v-html="msg"></span>
+    <span v-text="msg"></span>
+</div>
+<script>
+    new Vue({
+        el:"#app",
+        data:{
+            msg:"<h1>Hello</h1>"
+        },
+        methods:{
+            hello(){
+                return "world"
+            }
+        }
+    })
+</script>
+</body>
+</html>
