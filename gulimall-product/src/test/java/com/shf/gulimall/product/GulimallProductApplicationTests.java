@@ -28,12 +28,12 @@ class GulimallProductApplicationTests {
 //        brandEntity.setDescript("华为");
 //        brandService.updateById(brandEntity);
 
-        List<BrandEntity> list = brandService.list(
-                new QueryWrapper<BrandEntity>()
-                        .eq("brand_id", 1L));
-        for (BrandEntity brandEntity : list) {
-            System.out.println(brandEntity);
-        }
+//        List<BrandEntity> list = brandService.list(
+//                new QueryWrapper<BrandEntity>()
+//                        .eq("brand_id", 1L));
+//        for (BrandEntity brandEntity : list) {
+//            System.out.println(brandEntity);
+//        }
 
     }
 
