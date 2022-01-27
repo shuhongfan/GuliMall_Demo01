@@ -39,6 +39,11 @@
         header-align="center"
         align="center"
         label="品牌logo地址">
+        <template slot-scope="scope">
+          <el-image
+            :src="scope.row.logo"
+            fit="contain"></el-image>
+        </template>
       </el-table-column>
       <el-table-column
         prop="descript"
@@ -50,7 +55,17 @@
         prop="showStatus"
         header-align="center"
         align="center"
-        label="显示状态[0-不显示；1-显示]">
+        label="显示状态">
+        <template slot-scope="scope">
+          <el-switch
+            :active-value="1"
+            :inactive-value="0"
+            @change = "updateBrandStatus(scope.row)"
+            v-model="scope.row.showStatus"
+            active-color="#13ce66"
+            inactive-color="#ff4949">
+          </el-switch>
+        </template>
       </el-table-column>
       <el-table-column
         prop="firstLetter"
@@ -114,6 +129,20 @@
       this.getDataList()
     },
     methods: {
+      updateBrandStatus (data) {
+        console.log('最新信息：', data)
+        let {brandId, showStatus} = data
+        this.$http({
+          url: this.$http.adornUrl('/product/brand/update/status'),
+          method: 'post',
+          data: this.$http.adornData({brandId, showStatus: showStatus ? 1 : 0}, false)
+        }).then(({data}) => {
+          this.$message({
+            message: '状态更新成功',
+            type: 'success'
+          })
+        })
+      },
       // 获取数据列表
       getDataList () {
         this.dataListLoading = true
