@@ -3,6 +3,10 @@ package com.shf.gulimall.product.controller;
 import java.util.Arrays;
 import java.util.Map;
 
+import com.shf.common.utils.PageUtils;
+import com.shf.common.utils.R;
+import com.shf.gulimall.product.entity.SpuCommentEntity;
+import com.shf.gulimall.product.service.SpuCommentService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -10,19 +14,15 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.shf.gulimall.product.entity.SpuCommentEntity;
-import com.shf.gulimall.product.service.SpuCommentService;
-import com.shf.common.utils.PageUtils;
-import com.shf.common.utils.R;
 
 
 
 /**
  * 商品评价
  *
- * @author shuhongfan
- * @email shuhongfan@live.com
- * @date 2022-01-20 00:32:14
+ * @author leifengyang
+ * @email leifengyang@gmail.com
+ * @date 2019-10-01 22:50:32
  */
 @RestController
 @RequestMapping("product/spucomment")

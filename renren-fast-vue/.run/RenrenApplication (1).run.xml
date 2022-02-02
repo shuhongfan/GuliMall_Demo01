@@ -1,0 +1,10 @@
+<component name="ProjectRunConfigurationManager">
+  <configuration default="false" name="RenrenApplication (1)" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+    <module name="renren-generator" />
+    <option name="SPRING_BOOT_MAIN_CLASS" value="io.renren.RenrenApplication" />
+    <option name="ALTERNATIVE_JRE_PATH" />
+    <method v="2">
+      <option name="Make" enabled="true" />
+    </method>
+  </configuration>
+</component>

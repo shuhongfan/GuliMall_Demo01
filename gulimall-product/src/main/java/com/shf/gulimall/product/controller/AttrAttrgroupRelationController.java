@@ -3,6 +3,10 @@ package com.shf.gulimall.product.controller;
 import java.util.Arrays;
 import java.util.Map;
 
+import com.shf.common.utils.PageUtils;
+import com.shf.common.utils.R;
+import com.shf.gulimall.product.entity.AttrAttrgroupRelationEntity;
+import com.shf.gulimall.product.service.AttrAttrgroupRelationService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -10,19 +14,15 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.shf.gulimall.product.entity.AttrAttrgroupRelationEntity;
-import com.shf.gulimall.product.service.AttrAttrgroupRelationService;
-import com.shf.common.utils.PageUtils;
-import com.shf.common.utils.R;
 
 
 
 /**
  * 属性&属性分组关联
  *
- * @author shuhongfan
- * @email shuhongfan@live.com
- * @date 2022-01-20 00:32:14
+ * @author leifengyang
+ * @email leifengyang@gmail.com
+ * @date 2019-10-01 22:50:32
  */
 @RestController
 @RequestMapping("product/attrattrgrouprelation")

@@ -1,5 +1,6 @@
 import Vue from 'vue'
 import App from '@/App'
+import PubSub from 'pubsub-js'
 import router from '@/router'                 // api: https://github.com/vuejs/vue-router
 import store from '@/store'                   // api: https://github.com/vuejs/vuex
 import VueCookie from 'vue-cookie'            // api: https://github.com/alfhen/vue-cookie
@@ -11,6 +12,7 @@ import httpRequest from '@/utils/httpRequest' // api: https://github.com/axios/a
 import { isAuth } from '@/utils'
 import cloneDeep from 'lodash/cloneDeep'
 
+Vue.prototype.PubSub = PubSub
 Vue.use(VueCookie)
 Vue.config.productionTip = false
 

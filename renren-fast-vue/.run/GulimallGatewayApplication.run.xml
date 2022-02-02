@@ -1,0 +1,10 @@
+<component name="ProjectRunConfigurationManager">
+  <configuration default="false" name="GulimallGatewayApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+    <module name="gulimall-gateway" />
+    <option name="SPRING_BOOT_MAIN_CLASS" value="com.shf.gulimall.gateway.GulimallGatewayApplication" />
+    <option name="ALTERNATIVE_JRE_PATH" />
+    <method v="2">
+      <option name="Make" enabled="true" />
+    </method>
+  </configuration>
+</component>

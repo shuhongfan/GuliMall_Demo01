@@ -3,27 +3,26 @@ package com.shf.gulimall.product.controller;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
+import java.util.stream.Collectors;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
-
+import com.shf.common.utils.R;
 import com.shf.gulimall.product.entity.CategoryEntity;
 import com.shf.gulimall.product.service.CategoryService;
-import com.shf.common.utils.PageUtils;
-import com.shf.common.utils.R;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.validation.BindingResult;
+import org.springframework.validation.annotation.Validated;
+import org.springframework.web.bind.annotation.*;
 
+
+import javax.validation.Valid;
 
 
 /**
  * 商品三级分类
  *
- * @author shuhongfan
- * @email shuhongfan@live.com
- * @date 2022-01-20 00:32:14
+ * @author leifengyang
+ * @email leifengyang@gmail.com
+ * @date 2019-10-01 22:50:32
  */
 @RestController
 @RequestMapping("product/category")
@@ -36,19 +35,11 @@ public class CategoryController {
      */
     @RequestMapping("/list/tree")
     public R list(){
-        List<CategoryEntity> entityList = categoryService.listWithTree();
-        return R.ok().put("data", entityList);
-    }
 
-    /**
-     * 列表
-     */
-    @RequestMapping("/list")
-    //@RequiresPermissions("product:category:list")
-    public R list(@RequestParam Map<String, Object> params){
-        PageUtils page = categoryService.queryPage(params);
+        List<CategoryEntity> entities = categoryService.listWithTree();
 
-        return R.ok().put("page", page);
+
+        return R.ok().put("data", entities);
     }
 
 
@@ -74,15 +65,10 @@ public class CategoryController {
         return R.ok();
     }
 
-
-    /**
-     * 修改
-     */
     @RequestMapping("/update/sort")
     //@RequiresPermissions("product:category:update")
     public R updateSort(@RequestBody CategoryEntity[] category){
         categoryService.updateBatchById(Arrays.asList(category));
-
         return R.ok();
     }
 
@@ -92,24 +78,23 @@ public class CategoryController {
     @RequestMapping("/update")
     //@RequiresPermissions("product:category:update")
     public R update(@RequestBody CategoryEntity category){
-//		categoryService.updateById(category);
 		categoryService.updateCascade(category);
-
         return R.ok();
     }
 
+
     /**
      * 删除
-     * @RequestBody 获取请求体，必须发送POST请求
-     * springMVC自动将请求体的数据json
+     * @RequestBody:获取请求体，必须发送POST请求
+     * SpringMVC自动将请求体的数据（json），转为对应的对象
      */
     @RequestMapping("/delete")
     //@RequiresPermissions("product:category:delete")
     public R delete(@RequestBody Long[] catIds){
 
-//		categoryService.removeByIds(Arrays.asList(catIds));
 
-//        1.检查当前删除的菜单，是否被别的地方引用
+		//categoryService.removeByIds(Arrays.asList(catIds));
+
         categoryService.removeMenuByIds(Arrays.asList(catIds));
 
         return R.ok();

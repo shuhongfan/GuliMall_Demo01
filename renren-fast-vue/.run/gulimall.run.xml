@@ -1,0 +1,11 @@
+<component name="ProjectRunConfigurationManager">
+  <configuration default="false" name="gulimall" type="CompoundRunConfigurationType">
+    <toRun name="GulimallCouponApplication" type="SpringBootApplicationConfigurationType" />
+    <toRun name="GulimallGatewayApplication" type="SpringBootApplicationConfigurationType" />
+    <toRun name="GulimallMemberApplication" type="SpringBootApplicationConfigurationType" />
+    <toRun name="GulimallProductApplication" type="SpringBootApplicationConfigurationType" />
+    <toRun name="GulimallThirdPartyApplication" type="SpringBootApplicationConfigurationType" />
+    <toRun name="RenrenApplication" type="SpringBootApplicationConfigurationType" />
+    <method v="2" />
+  </configuration>
+</component>
