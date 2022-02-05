@@ -5,6 +5,7 @@
     <toRun name="GulimallMemberApplication" type="SpringBootApplicationConfigurationType" />
     <toRun name="GulimallProductApplication" type="SpringBootApplicationConfigurationType" />
     <toRun name="GulimallThirdPartyApplication" type="SpringBootApplicationConfigurationType" />
+    <toRun name="GulimallWareApplication" type="SpringBootApplicationConfigurationType" />
     <toRun name="RenrenApplication" type="SpringBootApplicationConfigurationType" />
     <method v="2" />
   </configuration>
