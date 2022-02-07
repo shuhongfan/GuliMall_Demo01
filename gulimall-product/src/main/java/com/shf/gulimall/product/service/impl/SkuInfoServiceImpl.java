@@ -8,6 +8,7 @@ import com.shf.gulimall.product.service.SkuInfoService;
 import org.springframework.stereotype.Service;
 
 import java.math.BigDecimal;
+import java.util.List;
 import java.util.Map;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.core.metadata.IPage;
@@ -89,6 +90,13 @@ public class SkuInfoServiceImpl extends ServiceImpl<SkuInfoDao, SkuInfoEntity> i
         );
 
         return new PageUtils(page);
+    }
+
+    @Override
+    public List<SkuInfoEntity> getSkusBySpuId(Long spuId) {
+        QueryWrapper<SkuInfoEntity> spu_id = new QueryWrapper<SkuInfoEntity>().eq("spu_id", spuId);
+        List<SkuInfoEntity> list = this.list(spu_id);
+        return list;
     }
 
 }

@@ -3,6 +3,7 @@ package com.shf.gulimall.product.service.impl;
 
 import com.shf.common.to.SkuReductionTo;
 import com.shf.common.to.SpuBoundTo;
+import com.shf.common.to.es.SkuEsModel;
 import com.shf.common.utils.PageUtils;
 import com.shf.common.utils.Query;
 import com.shf.common.utils.R;
@@ -11,11 +12,13 @@ import com.shf.gulimall.product.entity.*;
 import com.shf.gulimall.product.feign.CouponFeignService;
 import com.shf.gulimall.product.service.*;
 import com.shf.gulimall.product.vo.*;
+import com.sun.xml.internal.bind.v2.TODO;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.math.BigDecimal;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import java.util.Map;
@@ -55,6 +58,12 @@ public class SpuInfoServiceImpl extends ServiceImpl<SpuInfoDao, SpuInfoEntity> i
 
     @Autowired
     CouponFeignService couponFeignService;
+
+    @Autowired
+    BrandService brandService;
+
+    @Autowired
+    CategoryService categoryService;
 
     @Override
     public PageUtils queryPage(Map<String, Object> params) {
@@ -233,6 +242,34 @@ public class SpuInfoServiceImpl extends ServiceImpl<SpuInfoDao, SpuInfoEntity> i
         );
 
         return new PageUtils(page);
+    }
+
+    /**
+     * 商品上架
+     * @param spuId
+     */
+    @Override
+    public void up(Long spuId) {
+        ArrayList<SkuEsModel> upProduct = new ArrayList<>();
+//        组装需要的数据
+        SkuEsModel skuEsModel = new SkuEsModel();
+//        1.查出当前spuid对应的sku信息、品牌和名字
+        List<SkuInfoEntity> skus = skuInfoService.getSkusBySpuId(spuId);
+//        2.封装每个sku的信息
+        List<SkuEsModel> uoProducts = skus.stream().map(sku -> {
+//            组装需要的数据
+            SkuEsModel esModel = new SkuEsModel();
+            BeanUtils.copyProperties(sku,esModel);
+
+            esModel.setSkuPrice(sku.getPrice());
+            esModel.setSkuImg(sku.getSkuDefaultImg());
+
+//            TODO 1.发送远程调用，库存系统是否有库存
+//            TODO 2.热度评分
+//            TODO 3. 查询品牌和分类的名字信息
+            brandService.getById(esModel.getBranId())
+            return esModel;
+        }).collect(Collectors.toList());
     }
 
 
