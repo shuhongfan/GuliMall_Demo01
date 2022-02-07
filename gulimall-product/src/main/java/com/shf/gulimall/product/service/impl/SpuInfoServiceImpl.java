@@ -267,7 +267,6 @@ public class SpuInfoServiceImpl extends ServiceImpl<SpuInfoDao, SpuInfoEntity> i
 //            TODO 1.发送远程调用，库存系统是否有库存
 //            TODO 2.热度评分
 //            TODO 3. 查询品牌和分类的名字信息
-            brandService.getById(esModel.getBranId())
             return esModel;
         }).collect(Collectors.toList());
     }
